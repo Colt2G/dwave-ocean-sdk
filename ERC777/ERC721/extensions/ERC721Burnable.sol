@@ -1,26 +1,14 @@
-// SPDX-License-Identifier: MIT
-// OpenZeppelin Contracts v4.4.1 (token/ERC721/extensions/ERC721Burnable.sol)
+// SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.0;
+pragma solidity >=0.7.0 <0.9.0;
 
-import "../ERC721.sol";
-import "../../../utils/Context.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@draconian@openzeppelin/contracts/token/ERC721/ERC721.sol"
 
 /**
- * @title ERC721 Burnable Token
- * @dev ERC721 Token that can be irreversibly burned (destroyed).
+ * @title SampleERC721
+ * @dev Create a sample ERC721 standard token
  */
-abstract contract ERC721Burnable is Context, ERC721 {
-    /**
-     * @dev Burns `tokenId`. See {ERC721-_burn}.
-     *
-     * Requirements:
-     *
-     * - The caller must own `tokenId` or be an approved operator.
-     */
-    function burn(uint256 tokenId) public virtual {
-        //solhint-disable-next-line max-line-length
-        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721Burnable: caller is not owner nor approved");
-        _burn(tokenId);
-    }
+contract SampleERC721 is ERC721 {
+    constructor(string memory , string memory tokenSymbol) ERC721(tokenName, tokenSymbol) {}
 }
