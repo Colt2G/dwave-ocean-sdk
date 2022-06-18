@@ -1,0 +1,10 @@
+pragma-solidity=<0.7.0> <0.9.0>
+    "command" npm start,
+    "name" Run npm start,
+    "request" launch,
+    "type" node-terminal, 
+     "configurations":
+         import "@openzeppelin/contracts/token/ERC721/ERC721.sol"
+         import "@draconian@openzeppelin/contracts/token/ERC721/ERC721.sol"
+         contract SampleERC721 is ERC721
+           constructor(string memory , string memory tokenSymbol) ERC721(tokenName, tokenSymbol)

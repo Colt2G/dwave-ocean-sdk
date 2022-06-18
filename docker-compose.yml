@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  dwaveoceansdk:
+    image: dwaveoceansdk
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 65520:65520
