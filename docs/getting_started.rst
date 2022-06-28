@@ -39,6 +39,8 @@ Learn Ocean software's workflow for problem solving.
    :maxdepth: 1
 
    overview/solving_problems
+   overview/formulation
+   overview/samplers
    overview/stack
 
 D-Wave Compute Resources
@@ -50,7 +52,6 @@ or locally on your CPU.
 .. toctree::
    :maxdepth: 1
 
-   overview/samplers
    overview/hybrid
    overview/cpu
    overview/qpu
@@ -74,15 +75,25 @@ Beginner-Level Examples: Hybrid Computing
    :maxdepth: 1
    :hidden:
 
+   examples/hybrid_cqm_diet
+   examples/hybrid_cqm_binpacking
+   examples/hybrid_cqm_stock_selling
    examples/hybrid_solver_service
    examples/map_kerberos
    examples/map_dqm
 
-* :ref:`hss` solves an arbitrary-sized problem using a `Leap <https://cloud.dwavesys.com/leap/>`_
-  hybrid solver.
+* :ref:`example_cqm_diet_reals` solves a mixed-integer linear-programming (MILP)
+  problem using a `Leap <https://cloud.dwavesys.com/leap/>`_ hybrid :term:`CQM`
+  solver.
+* :ref:`example_cqm_binpacking` solves a binary constrained problem using a
+  `Leap <https://cloud.dwavesys.com/leap/>`_ hybrid :term:`CQM` solver.
+* :ref:`example_cqm_stock_selling` solves an integer constrained problem using a
+  Leap hybrid :term:`CQM` solver.
+* :ref:`hss` solves an unconstrained problem using a
+  Leap hybrid :term:`BQM` solver.
 * :ref:`map_kerberos` demonstrates using an out-of-the-box Ocean hybrid solver.
-* :ref:`map_dqm` solves a **discrete** quadratic model (:term:`DQM`) using 
-  `Leap <https://cloud.dwavesys.com/leap/>`_\ 's hybrid DQM solver.
+* :ref:`map_dqm` solves a discrete quadratic model (:term:`DQM`) using a
+  Leap hybrid DQM solver.
 
 .. _examples_qpu:
 
@@ -118,7 +129,7 @@ Intermediate-Level Examples
 * :ref:`map_coloring` example solves a more complex constraint satisfaction problem.
 * :ref:`multi_gate` looks more deeply at :term:`minor-embedding`.
 * :ref:`hybrid1` builds a hybrid workflow and solver for a large graph problem.
-* :ref:`pp_greedy` improves samples returned from a QPU by post-processing with a 
+* :ref:`pp_greedy` improves samples returned from a QPU by post-processing with a
   classical greedy algorthim.
 
 Advanced-Level Examples
@@ -136,23 +147,49 @@ Advanced-Level Examples
 
 .. _projects-Demonstrations:
 
-Demonstrations and Jupyter Notebooks
-====================================
+Additional Examples
+===================
 
 D-Wave's `dwave-examples <https://github.com/dwave-examples>`_ GitHub repo
-contains demos, typically in the form of short code examples, you can open in
-the Leap IDE or copy (clone) locally and run.
+contains many more code examples:
 
-D-Wave's `Leap <https://cloud.dwavesys.com/leap>`_ Quantum Application Environment
-provides a number of `Jupyter Notebooks <https://jupyter.org>`_ with detailed code examples for various types
-of problems (for example, constraint satisfaction problems) and ways of using the
-quantum computer (for example, hybrid computing and reverse annealing). These can also
-serve as a framework in which to develop your own code.
+* Demos
+
+  Typically in the form of short code examples you can open in
+  the Leap IDE or copy (clone) locally and run. For example:
+
+  * `Nurse scheduling <https://github.com/dwave-examples/nurse-scheduling>`_,
+    `maze <https://github.com/dwave-examples/maze>`_,
+    `circuit fault diagnosis <https://github.com/dwave-examples/circuit-fault-diagnosis>`_,
+    and others provide examples of constraint-satisfaction problems.
+
+  * `Map coloring <https://github.com/dwave-examples/map-coloring>`_,
+    `job-shop scheduling <https://github.com/dwave-examples/job-shop-scheduling-cqm>`_,
+    and others can complement similar examples presented here.
+
+  * `RNA folding <https://github.com/dwave-examples/rna-folding>`_,
+    `portfolio optimization <https://github.com/dwave-examples/portfolio-optimization>`_,
+    and others provide prototype applications in a variety of industries.
+
+* Jupyter Notebooks
+
+  These examples, in a web-based interactive environment that includes documentation
+  and code, are helpful for both walking beginners through the theory and practice
+  of problem solving and explaining complex features. They can also serve as
+  a framework in which to develop your own code. For example:
+
+  * `Structural imbalance notebook <https://github.com/dwave-examples/structural-imbalance-notebook>`_
+    can complement the :ref:`hss` example.
+  * `Hybrid computing notebooks <https://github.com/dwave-examples/hybrid-computing-notebook>`_
+    walk you through using and developing hybrid solvers.
+  * `Pegasus notebook <https://github.com/dwave-examples/pegasus-notebook>`_,
+    `reverse annealing notebook <https://github.com/dwave-examples/reverse-annealing-notebook>`_,
+    and others explain features of the quantum computer.
 
 .. _additional_tutorials:
 
-Additional Tutorials
-====================
+Further Learning
+================
 
 * :std:doc:`Getting Started with the D-Wave System <sysdocs_gettingstarted:doc_getting_started>`
 
@@ -164,6 +201,20 @@ Additional Tutorials
 
 * :std:doc:`D-Wave Problem-Solving Handbook <sysdocs_gettingstarted:doc_handbook>`
 
-  This guide provides advanced guidance on using D-Wave solvers, in particular QPU solvers. 
-  It lists, explains, and demonstrates techniques of problem formulation, minor-embedding, 
+  This guide provides advanced guidance on using D-Wave solvers, in particular QPU solvers.
+  It lists, explains, and demonstrates techniques of problem formulation, minor-embedding,
   and configuring QPU parameters to optimize performance.
+
+* Package introductions
+
+    The following Ocean packages have extended introductions:
+
+  * The :ref:`introduction to dimod <intro_dimod>` describes Ocean's supported
+    models (e.g., BQMs), the format of returned solutions, :ref:`intro_symbolic_math`,
+    and :ref:`intro_scaling`.
+
+  * The :ref:`introduction to dwave-cloud-client <intro_cloud>` discusses how to
+    configure selection of and communications with solvers.
+
+  * The :ref:`introduction to dwave-hybrid <intro_hybrid>` explains how to use
+    the Python framework for running and building hybrid samplers.
